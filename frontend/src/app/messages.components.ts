@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { WebService } from './web.service';
 
+
 @Component({
     selector: 'app-messages',
     template: `
@@ -14,12 +15,13 @@ import { WebService } from './web.service';
 })
 export class MessagesComponent {
 
-    messages = [{text: 'some text', owner: 'Piter'}, {text: 'other text', owner: 'Dawid'}];
+    messages = [{text: 'some text', owner: 'Piotr'}, {text: 'other text', owner: 'Dawid'}];
 
     constructor(private webService: WebService) {}
 
-    ngOnInit() {
-        this.webService.getMessages();
+    async ngOnInit() {
+        const respons = await this.webService.getMessages();
+        console.log(respons);
     }
 
 }
