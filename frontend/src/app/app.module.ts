@@ -11,7 +11,8 @@ import {
 
 import { MessagesComponent } from './messages.components';
 import { AppComponent } from './app.component';
-
+import { WebService } from './web.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -20,13 +21,14 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpModule,
     MatButtonModule,
     MatCardModule,
     MatInputModule,
     MatSnackBarModule,
     MatToolbarModule
   ],
-  providers: [],
+  providers: [WebService],
   bootstrap: [AppComponent]
 })
 
