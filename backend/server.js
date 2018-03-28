@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
 
 var messages = [{text: 'some text', owner: 'Piter'}, {text: 'other text', owner: 'Dawid'}];
 
@@ -11,6 +12,10 @@ app.use((req, res, next)=>{
 
 app.get('/messages', (req, res) => {
     res.json(messages);
+})
+
+app.post('/message', (req, res) => {
+    console.log(req.body);
 })
 
 app.listen(1234);
