@@ -8,6 +8,6 @@ export class WebService {
     constructor(private http: Http) {}
 
     getMessages() {
-        return this.http.get('http://localhost:1234/messages').toPromise;
+        return this.http.get('http://localhost:1234/messages').toPromise();
     }
 }

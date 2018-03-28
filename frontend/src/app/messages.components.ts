@@ -15,13 +15,20 @@ import { WebService } from './web.service';
 })
 export class MessagesComponent {
 
-    messages = [{text: 'some text', owner: 'Piotr'}, {text: 'other text', owner: 'Dawid'}];
+    messages = [{ text: 'some text', owner: 'Piotr' }, { text: 'other text', owner: 'Dawid' }];
 
-    constructor(private webService: WebService) {}
+    constructor(private webService: WebService) {
+        // const respons = this.webService.getMessages();
+        // respons.then(res => {
+        //     console.log(res);
+
+        // }).catch(error => {
+        //     console.log(error);
+        // });
+    }
 
     async ngOnInit() {
         const respons = await this.webService.getMessages();
         console.log(respons);
     }
-
 }
