@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { WebService } from './web.service';
 
 
@@ -13,9 +13,9 @@ import { WebService } from './web.service';
     </div>
     `
 })
-export class MessagesComponent {
+export class MessagesComponent implements OnInit {
 
-    messages = [{ text: 'some text', owner: 'Piotr' }, { text: 'other text', owner: 'Dawid' }];
+    messages = [];
 
     constructor(private webService: WebService) {
         // const respons = this.webService.getMessages();
@@ -29,6 +29,7 @@ export class MessagesComponent {
 
     async ngOnInit() {
         const respons = await this.webService.getMessages();
-        console.log(respons);
+        this.messages = respons.json();
+        // console.log(respons.json());
     }
 }
